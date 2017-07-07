@@ -97,17 +97,7 @@ if(23 === '23'){
 
 
 // boolean logic and switch
-this is my car.
-are you insane?
-are you sure?
-what the hell is this?
-are you hangry?
-do you wanna die?
-are you going home?
-I'm leaving.
-I'm off to San fransico
-are you having fan?
-I'm glad that you are having good time.
+
 var age = 16;
 
 if(age < 20){
@@ -132,7 +122,7 @@ switch (job){
     console.log('John helps fight crime.');
     break;
   default:
-    console.log('John does something else.')
+    console.log('John does something else.');
 }
 
 
