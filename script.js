@@ -1,4 +1,4 @@
-// variables
+// ## variables
 /*
 var name = 'John';
 console.log(name);
@@ -11,18 +11,17 @@ console.log(age);
 
 var fullAge = true;
 console.log(fullAge);
-*/
 
-/*
+
 var name = 'John';
 var age = 26;
 
-// console.log(name + age);
-// console.log(age + age);
+console.log(name + age);
+console.log(age + age);
 
 var job, isMarried;
 
-// console.log(job);
+console.log(job);
 
 job = 'teacher';
 isMarried = false;
@@ -35,11 +34,12 @@ job = 'driver';
 console.log(name + 'is a ' + age + ' years old ' + job + '. Is he married? '  + isMarried + '.');
 
 
-// var lastName = prompt('What is the last name?');
-// console.log(lastName);
+var lastName = prompt('What is the last name?');
+console.log(lastName);
 
 alert(name + 'is a ' + age + ' years old ' + job + '. Is he married?'  + isMarried + '.');
 */
+
 
 // operators
 /*
@@ -62,8 +62,10 @@ console.log(ageJohn);
 console.log(ageMark);
 */
 
-//if/else statements
 
+// ## if/else statements
+
+/*
 var name = 'John';
 var age = 26;
 var isMarried = 'yes';
@@ -77,12 +79,12 @@ else{
 
 isMarried = true;
 
-// if(isMarried){
-//   console.log('Yes!');
-// }
-// else{
-//   console.log('No!');
-// }
+if(isMarried){
+  console.log('Yes!');
+}
+else{
+  console.log('No!');
+}
 
 if(isMarried){
   console.log('Yes!');
@@ -91,17 +93,47 @@ if(isMarried){
 if(23 === '23'){
   console.log('Something to print...')
 }
+*/
 
 
+// boolean logic and switch
+this is my car.
+are you insane?
+are you sure?
+what the hell is this?
+are you hangry?
+do you wanna die?
+are you going home?
+I'm leaving.
+I'm off to San fransico
+are you having fan?
+I'm glad that you are having good time.
+var age = 16;
 
+if(age < 20){
+  console.log('John is a teenager.');
+}else if(age >= 20 && age < 30){
+  console.log('John is a young man.')
+}else{
+  console.log('John is a man.')
+}
 
+var job = 'teacher';
+job = prompt('What does john do?')
 
-
-
-
-
-
-
+switch (job){
+  case 'teacher':
+    console.log('John teaches kids.');
+    break;
+  case 'driver':
+    console.log('John drives a cab in Lisbon.');
+    break;
+  case 'cop':
+    console.log('John helps fight crime.');
+    break;
+  default:
+    console.log('John does something else.')
+}
 
 
 
