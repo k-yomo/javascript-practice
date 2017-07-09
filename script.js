@@ -158,7 +158,7 @@ if(scoreJohn > scorePeter && scoreJohn > scoreJessica){
 
 
 // functions
-
+/*
 function calculateAge(yearOfBirth){
   var age = 2016 - yearOfBirth;
   return age;
@@ -183,13 +183,20 @@ function yearsUntilRetirement(name, year) {
 yearsUntilRetirement('John', 1990);
 yearsUntilRetirement('Mike', 1969);
 yearsUntilRetirement('Mary', 1948);
+*/
 
 
+// statements and expressions
 
+//function statement
+function someFun(par) {
+  //code
+}
 
-
-
-
+// function expression
+var someFun = function(par) {
+  //code
+}
 
 
 
