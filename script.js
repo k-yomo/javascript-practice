@@ -296,13 +296,12 @@ var john = {
 */
 
 
-//Loops and iteration
+// Loops and iteration
 
-
+/*
 for(var i = 0; i < 10; i++){
   console.log(i);
 }
-
 
 var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
 
@@ -328,6 +327,46 @@ for(var i = 1; i <= 5; i++){
   }
   console.log(i);
 }
+*/
+
+// CODING CHALLENGE 2
+
+/*
+for(var i = 0; i < birthYears.length; i++){
+  ages.push(2017 - birthYears[i]);
+}
+
+for(var i = 0; i < ages.length; i++){
+  if(ages[i] >= 18){
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] +' years old, and is of full age.');
+  }else{
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] +' years old, and is not of full age.');    
+  }
+}
+*/
+
+function printFullAge(years){
+  var ages = [];
+  var results = [];
+  for(var i = 0; i < years.length; i++){
+    ages.push(2017 - years[i]);
+  }
+
+  for(var i = 0; i < ages.length; i++){
+    if(ages[i] >= 18){
+      results.push(true);
+    }else{
+      results.push(false);
+    }
+  }
+  return results;
+}
+var birthYears = [1995, 1969, 1973, 2010];
+full_1 = console.log(printFullAge(birthYears));
+full_2 = console.log(printFullAge([2013, 1935, 2001]));
+
+
+
 
 
 
