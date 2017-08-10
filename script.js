@@ -340,10 +340,9 @@ for(var i = 0; i < ages.length; i++){
   if(ages[i] >= 18){
     console.log('Person ' + (i + 1) + ' is ' + ages[i] +' years old, and is of full age.');
   }else{
-    console.log('Person ' + (i + 1) + ' is ' + ages[i] +' years old, and is not of full age.');    
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] +' years old, and is not of full age.');
   }
 }
-*/
 
 function printFullAge(years){
   var ages = [];
@@ -365,33 +364,28 @@ var birthYears = [1995, 1969, 1973, 2010];
 full_1 = console.log(printFullAge(birthYears));
 full_2 = console.log(printFullAge([2013, 1935, 2001]));
 
+*/
 
 
+// Hoisting
 
+calculateAge(1995);
+function calculateAge(year) {
+  console.log(2017 - year);
+}
 
+// retirement(1995);
+var retirement = function functionName(year) {
+  console.log(65 - (2017 - year));
+}
 
+console.log(age);
+var age = 23;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function foo() {
+  console.log(age);
+  var age = 65;
+  console.log(age);
+}
+foo();
+console.log(age);
