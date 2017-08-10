@@ -64,7 +64,6 @@ console.log(ageMark);
 
 
 // ## If/else statements
-
 /*
 var name = 'John';
 var age = 26;
@@ -128,7 +127,6 @@ switch (job){
 
 
 // CODING CHALLENGE 1
-
 /*
 var heightJohn = 164;
 var ageJohn = 31;
@@ -167,7 +165,6 @@ function calculateAge(yearOfBirth){
 var ageJohn = calculateAge(1990);
 var ageMike = calculateAge(1969);
 var ageMary = calculateAge(1948);
-
 
 function yearsUntilRetirement(name, year) {
   var age = calculateAge(year);
@@ -255,6 +252,7 @@ jane['isMarried'] = true;
 console.log(jane);
 */
 
+
 // Objects and methods
 // v1.0
 /*
@@ -276,8 +274,8 @@ var age = john.calculateAge();
 john.age = age;
 console.log(john);
 */
-// v2.0
 
+// v2.0
 /*
 var john = {
   name: 'John',
@@ -297,7 +295,6 @@ var john = {
 
 
 // Loops and iteration
-
 /*
 for(var i = 0; i < 10; i++){
   console.log(i);
@@ -329,8 +326,8 @@ for(var i = 1; i <= 5; i++){
 }
 */
 
-// CODING CHALLENGE 2
 
+// CODING CHALLENGE 2
 /*
 for(var i = 0; i < birthYears.length; i++){
   ages.push(2017 - birthYears[i]);
@@ -368,7 +365,7 @@ full_2 = console.log(printFullAge([2013, 1935, 2001]));
 
 
 // Hoisting
-
+/*
 calculateAge(1995);
 function calculateAge(year) {
   console.log(2017 - year);
@@ -389,3 +386,25 @@ function foo() {
 }
 foo();
 console.log(age);
+*/
+
+
+// Scoping
+var a = "Hello";
+first();
+
+function first() {
+  var b = "Hi!";
+  second();
+
+  function second() {
+    var c = "Hey!";
+    third();
+  }
+}
+
+function third() {
+  var d = "John";
+  // console.log(c);
+  console.log(a + " " + d);
+}
