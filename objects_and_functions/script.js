@@ -170,19 +170,54 @@
 // fullAge(john.name);
 
 
-// IIFE
-function game() {
-  var score = Math.random() * 10;
-  console.log(score >= 5);
+// // IIFE
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// }
+// game();
+//
+// (function () {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// })();
+//
+// (function (goodL) {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5 - goodLuck);
+// })(5);
+
+
+// CLOSURES
+function retirement(retirementAge) {
+  var a = "years left until retirement."
+  return function(yearOfBirth) {
+    var age = 2017 - yearOfBirth;
+    console.log((retirementAge - age) + a);
+  }
 }
-game();
 
-(function () {
-  var score = Math.random() * 10;
-  console.log(score >= 5);
-})();
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
 
-(function (goodL) {
-  var score = Math.random() * 10;
-  console.log(score >= 5 - goodLuck);
-})(5);
+retirementUS(1990);
+retirementGermany(1990);
+retirementIceland(1990);
+
+
+function interviewQuestion(job) {
+  var question;
+  if (job === "designer") {
+    question = ", can you please explain what UX design is?";
+  } else if (job === "teacher") {
+    question = ", what subject do you teach?";
+  } else {
+    question = ", what do you do?";
+  }
+  return function(name) {
+    console.log(name + question);
+  }
+}
+
+var interviewDesigner = interviewQuestion("designer")("Mark");
