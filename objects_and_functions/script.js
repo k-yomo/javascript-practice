@@ -121,50 +121,68 @@
 // console.log(rates);
 
 
-// Functions returning Functions
-function interviewQuestion(job) {
-  if (job === "designer") {
-    return function(name) {
-      console.log(name + ", can you please explain what UX design is?");
-    }
-  } else if (job === "teacher") {
-    return function(name) {
-        console.log("What subject do you teach, " + name + "?");
-    }
-  } else {
-    return function() {
-      console.log("Hello " + name + ", what do you do?");
-    }
-  }
+// // Functions returning Functions
+// function interviewQuestion(job) {
+//   if (job === "designer") {
+//     return function(name) {
+//       console.log(name + ", can you please explain what UX design is?");
+//     }
+//   } else if (job === "teacher") {
+//     return function(name) {
+//         console.log("What subject do you teach, " + name + "?");
+//     }
+//   } else {
+//     return function() {
+//       console.log("Hello " + name + ", what do you do?");
+//     }
+//   }
+// }
+//
+// var teacherQuestion = interviewQuestion("teacher");
+// var designerQuestion = interviewQuestion("designer");
+//
+// teacherQuestion("John");
+// designerQuestion("John")
+// designerQuestion("Jane")
+// designerQuestion("Mark")
+// designerQuestion("Mike")
+//
+// interviewQuestion("teacher")("Mark");
+//
+// function isFullAge(age) {
+//   if (age >= 18) {
+//     return function(name) {
+//       console.log("You are full age, " + name);
+//     }
+//   } else {
+//     return function(name) {
+//       console.log("You are not full age, " + name);
+//     }
+//   }
+// }
+//
+// john = {
+//   name: "John",
+//   age: 20,
+//   sex: "male"
+// }
+// var fullAge = isFullAge(john.age);
+// fullAge(john.name);
+
+
+// IIFE
+function game() {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
 }
+game();
 
-var teacherQuestion = interviewQuestion("teacher");
-var designerQuestion = interviewQuestion("designer");
+(function () {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
+})();
 
-teacherQuestion("John");
-designerQuestion("John")
-designerQuestion("Jane")
-designerQuestion("Mark")
-designerQuestion("Mike")
-
-interviewQuestion("teacher")("Mark");
-
-function isFullAge(age) {
-  if (age >= 18) {
-    return function(name) {
-      console.log("You are full age, " + name);
-    }
-  } else {
-    return function(name) {
-      console.log("You are not full age, " + name);
-    }
-  }
-}
-
-john = {
-  name: "John",
-  age: 20,
-  sex: "male"
-}
-var fullAge = isFullAge(john.age);
-fullAge(john.name);
+(function (goodL) {
+  var score = Math.random() * 10;
+  console.log(score >= 5 - goodLuck);
+})(5);
