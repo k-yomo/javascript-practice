@@ -287,16 +287,6 @@
     this.rightAnswer = answer;
   }
 
-  Question.prototype.giveQuize = function () {
-    this.displayQuestion();
-    var answer = prompt("Choose correct answer(type 'exit' to finish)");
-    if (answer !== "exit") {
-      this.isAnswerCrrect(Number(answer));
-      this.printScore();
-      this.nextQuize();
-    }
-  };
-
   Question.prototype.displayQuestion = function () {
     console.log(this.question);
     for (var i = 0; i < this.choices.length; i++) {
@@ -304,27 +294,21 @@
     }
   };
 
-    Question.prototype.isAnswerCrrect = function(answer) {
+  Question.prototype.isAnswerCrrect = function(answer) {
     if (answer === this.rightAnswer) {
       console.log("You are crrect!");
-      currentScore += 1;
+      currentScore++;
     } else {
       console.log("You are wrong.");
     }
-  }
+  };
 
   Question.prototype.printScore = function() {
     console.log("Current score: " + currentScore);
     console.log("--------------------------");
-  }
-
-  Question.prototype.nextQuize = function() {
-    random_num = Math.floor(Math.random() * 3);
-    questions[random_num].giveQuize();
-  }
+  };
 
   var questions = [];
-  var currentScore = 0;
   questions.push(new Question(
     "Which is an animal?", "Dog", "Potato", "robot", 0)
     );
@@ -334,8 +318,19 @@
   questions.push(new Question(
     "Which is American brand?", "ZARA", "H&M", "GAP", 2)
     );
-  random_num = Math.floor(Math.random() * questions.length);
+  var currentScore = 0;
 
+  function giveQuize() {
+    var random_num = Math.floor(Math.random() * questions.length);
+    var qs = questions[random_num];
+    qs.displayQuestion();
+    var answer = prompt("Choose correct answer(type 'exit' to finish)");
+    if (answer !== "exit") {
+      qs.isAnswerCrrect(parseInt(answer));
+      qs.printScore();
+      giveQuize();
+    }
+  }
 
-  questions[random_num].giveQuize();
+  giveQuize();
 })();
