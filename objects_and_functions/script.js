@@ -223,57 +223,119 @@
 // var interviewDesigner = interviewQuestion("designer")("Mark");
 
 
-// Bind, call and apply
-var john = {
-    name: "John",
-    age: 36,
-    job: "teacher",
-    presentation: function(style, timeOfDay) {
-      if (style === "formal") {
-        console.log("Good " + timeOfDay + ", Ladies and gentleman!: I'm a " + this.name + ", I'm a " + this.job + " and I'm " + this.age + " years old.");
-      } else if (style === "friendly") {
-        console.log("Hey, what's up? I'm a " + this.name + ", I'm a " + this.job + " and I'm " + this.age + " years old. Have a nice " + timeOfDay + ".");
-      }
-    }
-};
+// // Bind, call and apply
+// var john = {
+//     name: "John",
+//     age: 36,
+//     job: "teacher",
+//     presentation: function(style, timeOfDay) {
+//       if (style === "formal") {
+//         console.log("Good " + timeOfDay + ", Ladies and gentleman!: I'm a " + this.name + ", I'm a " + this.job + " and I'm " + this.age + " years old.");
+//       } else if (style === "friendly") {
+//         console.log("Hey, what's up? I'm a " + this.name + ", I'm a " + this.job + " and I'm " + this.age + " years old. Have a nice " + timeOfDay + ".");
+//       }
+//     }
+// };
+//
+// var emily = {
+//   name: "Emily",
+//   age: 35,
+//   job: "designer"
+// };
+//
+// john.presentation("formal", "morning");
+// john.presentation.call(emily, "friendly", "afternoon")
+// // john.presentation.apply(emily, ["friendly", "afternoon"]);
+//
+// var johnFriendly = john.presentation.bind(john, "friendly");
+// johnFriendly("morning");
+// johnFriendly("night");
+//
+// var emilyFormal = john.presentation.bind(emily, "formal");
+// emilyFormal("afternoon");
+//
+//
+// var years = [1990, 1965, 1937, 2005, 1998];
+//
+// function arrayCalc(arr, fn) {
+//   var arrRes = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     arrRes.push(fn(arr[i]));
+//   }
+//   return  arrRes;
+// }
+//
+// function calculateAge(el) {
+//   return 2017 - el;
+// }
+//
+// function isFullAge(limit, el) {
+//   return el >= limit;
+// }
+//
+// var ages = arrayCalc(years, calculateAge);
+// var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+// console.log(ages);
+// console.log(fullJapan);
 
-var emily = {
-  name: "Emily",
-  age: 35,
-  job: "designer"
-};
 
-john.presentation("formal", "morning");
-john.presentation.call(emily, "friendly", "afternoon")
-// john.presentation.apply(emily, ["friendly", "afternoon"]);
-
-var johnFriendly = john.presentation.bind(john, "friendly");
-johnFriendly("morning");
-johnFriendly("night");
-
-var emilyFormal = john.presentation.bind(emily, "formal");
-emilyFormal("afternoon");
-
-
-var years = [1990, 1965, 1937, 2005, 1998];
-
-function arrayCalc(arr, fn) {
-  var arrRes = [];
-  for (var i = 0; i < arr.length; i++) {
-    arrRes.push(fn(arr[i]));
+// CODING CHALLENGE
+(function() {
+  function Question(question, choice1, choice2, choice3, answer) {
+    this.question =  question;
+    this.choices =  [choice1, choice2, choice3];
+    this.rightAnswer = answer;
   }
-  return  arrRes;
-}
 
-function calculateAge(el) {
-  return 2017 - el;
-}
+  Question.prototype.giveQuize = function () {
+    this.displayQuestion();
+    var answer = prompt("Choose correct answer(type 'exit' to finish)");
+    if (answer !== "exit") {
+      this.isAnswerCrrect(Number(answer));
+      this.printScore();
+      this.nextQuize();
+    }
+  };
 
-function isFullAge(limit, el) {
-  return el >= limit;
-}
+  Question.prototype.displayQuestion = function () {
+    console.log(this.question);
+    for (var i = 0; i < this.choices.length; i++) {
+    console.log(i + " : " + this.choices[i]);
+    }
+  };
 
-var ages = arrayCalc(years, calculateAge);
-var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
-console.log(ages);
-console.log(fullJapan);
+    Question.prototype.isAnswerCrrect = function(answer) {
+    if (answer === this.rightAnswer) {
+      console.log("You are crrect!");
+      currentScore += 1;
+    } else {
+      console.log("You are wrong.");
+    }
+  }
+
+  Question.prototype.printScore = function() {
+    console.log("Current score: " + currentScore);
+    console.log("--------------------------");
+  }
+
+  Question.prototype.nextQuize = function() {
+    random_num = Math.floor(Math.random() * 3);
+    questions[random_num].giveQuize();
+  }
+
+  var questions = [];
+  var currentScore = 0;
+  questions.push(new Question(
+    "Which is an animal?", "Dog", "Potato", "robot", 0)
+    );
+  questions.push(new Question(
+    "What do people usually do in the morning?", "Write their diary", "Wash their teeth", "Have a beer", 1)
+    );
+  questions.push(new Question(
+    "Which is American brand?", "ZARA", "H&M", "GAP", 2)
+    );
+  random_num = Math.floor(Math.random() * questions.length);
+
+
+  questions[random_num].giveQuize();
+})();
