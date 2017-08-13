@@ -62,7 +62,7 @@ var uiController = (function() {
       return  {
         type: document.querySelector(domStrings.inputType).value,
         description: document.querySelector(domStrings.inputDiscription).value,
-        value: document.querySelector(domStrings.inputValue).value
+        value: parseFloat(document.querySelector(domStrings.inputValue).value)
       };
     },
     addListItem(obj, type) {
@@ -107,14 +107,21 @@ var controller = (function(budgetCtrl, uiCtrl) {
         ctrlAddItem();
       }
     });
-  }
+  };
+
+  var updateBudget = function() {
+
+  };
 
   var ctrlAddItem = function() {
     var input, newItem;
     input = uiCtrl.getInput();
-    newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-    uiCtrl.addListItem(newItem, input.type);
-    uiCtrl.clearFIelds();
+    if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+      newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+      uiCtrl.addListItem(newItem, input.type);
+      uiCtrl.clearFIelds();
+      updateBudget();
+    }
   };
 
   return {
