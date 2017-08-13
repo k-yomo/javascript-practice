@@ -42,13 +42,30 @@
 // console.log(i);
 
 
-// Blocks and IIFEs
+// // Blocks and IIFEs
+// {
+//   const a = 1;
+//   let b =2;
+//   var c = 3;
+// }
+//
+// console.log(a + b);
+// console.log(c);
 
-{
-  const a = 1;
-  let b =2;
-  var c = 3;
+
+// Strings
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1990;
+
+function calcAge(year) {
+  return 2017 - year;
 }
 
-console.log(a + b);
-// console.log(c);
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)} years old.`);
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('J'));
+console.log(n.endsWith('mith'));
+console.log(n.includes(' '));
+console.log(`${firstName} `.repeat(5));
