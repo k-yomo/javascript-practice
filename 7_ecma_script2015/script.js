@@ -185,14 +185,14 @@
 // ES5
 const boxes = document.querySelectorAll('.box');
 var boxesArr5 = Array.prototype.slice.call(boxes);
-boxesArr5.forEach(function(cur) {
-  cur.style.backgroundColor = 'dodgerblue';
+boxesArr5.forEach(function(el) {
+  el.style.backgroundColor = 'dodgerblue';
 });
 
 // ES6
 const boxes = document.querySelectorAll('.box');
 const boxesArr6 = Array.from(boxes);
-Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+Array.from(boxes).forEach(el => el.style.backgroundColor = 'dodgerblue');
 
 // ES5
 for(var i = 0; i < boxesArr5.length; i++) {
@@ -203,21 +203,21 @@ for(var i = 0; i < boxesArr5.length; i++) {
 }
 
 // ES6
-for(const cur of boxesArr6) {
-  if (cur.className.includes('blue')) {
+for(const el of boxesArr6) {
+  if (el.className.includes('blue')) {
     continue;
   }
-  cur.textContent = 'I Changed to blue!';
+  el.textContent = 'I Changed to blue!';
 }
 
 
 // ES5
 var ages = [12, 17, 8, 21, 14, 11];
-var full = ages.map(function(cur) {
-  return cur >= 18;
+var full = ages.map(function(el) {
+  return el >= 18;
 });
 console.log(full);
 console.log(full.indexOf(true));
 
 // ES6
-console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.findIndex(el => el >= 18));
