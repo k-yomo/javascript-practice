@@ -223,30 +223,54 @@
 // console.log(ages.findIndex(el => el >= 18));
 
 
-// Spread Operator
-function addFourAges(a, b, c, d) {
-  return a + b + c + d;
+// // Spread Operator
+// function addFourAges(a, b, c, d) {
+//   return a + b + c + d;
+// }
+//
+// var sum1 = addFourAges(18, 30, 12, 21);
+// console.log(sum1);
+//
+// //5
+// var ages = [18, 30, 12, 21];
+// var sum2 = addFourAges.apply(null, ages);
+// console.log(sum2);
+//
+// // ES6
+// const max3 = addFourAges(...ages);
+//
+// const familySmith = ['John', 'Jane', 'Mark'];
+// const familyMiller = ['Mary', 'Bob', 'Ann'];
+// const bigFamily = [...familySmith,'Lily', ...familyMiller];
+// console.log(bigFamily);
+//
+// const h = document.querySelector('h1');
+// const boxes = document.querySelectorAll('.box');
+// const all = [h, ...boxes];
+// console.log(all);
+//
+// Array.from(all).forEach(el => el.style.color = 'purple');
+
+
+// Lest parameters
+// ES5
+function isFullAge5() {
+  var argsArr = Array.prototype.slice.call(arguments);
+  argsArr.forEach(function(el) {
+    console.log((2017 - el) >= 18);
+  })
 }
-
-var sum1 = addFourAges(18, 30, 12, 21);
-console.log(sum1);
-
-//5
-var ages = [18, 30, 12, 21];
-var sum2 = addFourAges.apply(null, ages);
-console.log(sum2);
+isFullAge5(1990, 1999, 1965, 2016, 1987);
 
 // ES6
-const max3 = addFourAges(...ages);
+function isFullAge6(...years) {
+  years.forEach(el => console.log((2017 - el) >= 18));
+}
 
-const familySmith = ['John', 'Jane', 'Mark'];
-const familyMiller = ['Mary', 'Bob', 'Ann'];
-const bigFamily = [...familySmith,'Lily', ...familyMiller];
-console.log(bigFamily);
+isFullAge6(1990, 1999, 1965, 2016, 1987);
 
-const h = document.querySelector('h1');
-const boxes = document.querySelectorAll('.box');
-const all = [h, ...boxes];
-console.log(all);
+function isFullAge6(limit, ...years) {
+  years.forEach(el => console.log((2018 - el) >= limit));
+}
 
-Array.from(all).forEach(el => el.style.color = 'purple');
+isFullAge6(16,1990, 1999, 1965, 2016, 1987);
