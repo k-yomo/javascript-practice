@@ -181,43 +181,72 @@
 // console.log(age2);
 // console.log(retirement);
 
-// Arrays
-// ES5
-const boxes = document.querySelectorAll('.box');
-var boxesArr5 = Array.prototype.slice.call(boxes);
-boxesArr5.forEach(function(el) {
-  el.style.backgroundColor = 'dodgerblue';
-});
+// // Arrays
+// // ES5
+// const boxes = document.querySelectorAll('.box');
+// var boxesArr5 = Array.prototype.slice.call(boxes);
+// boxesArr5.forEach(function(el) {
+//   el.style.backgroundColor = 'dodgerblue';
+// });
+//
+// // ES6
+// const boxes = document.querySelectorAll('.box');
+// const boxesArr6 = Array.from(boxes);
+// Array.from(boxes).forEach(el => el.style.backgroundColor = 'dodgerblue');
+//
+// // ES5
+// for(var i = 0; i < boxesArr5.length; i++) {
+//   if (boxesArr5[i].className === 'box blue') {
+//     continue;
+//   }
+//   boxesArr5[i].textContent = 'I canged to blue!'
+// }
+//
+// // ES6
+// for(const el of boxesArr6) {
+//   if (el.className.includes('blue')) {
+//     continue;
+//   }
+//   el.textContent = 'I Changed to blue!';
+// }
+//
+//
+// // ES5
+// var ages = [12, 17, 8, 21, 14, 11];
+// var full = ages.map(function(el) {
+//   return el >= 18;
+// });
+// console.log(full);
+// console.log(full.indexOf(true));
+//
+// // ES6
+// console.log(ages.findIndex(el => el >= 18));
 
-// ES6
-const boxes = document.querySelectorAll('.box');
-const boxesArr6 = Array.from(boxes);
-Array.from(boxes).forEach(el => el.style.backgroundColor = 'dodgerblue');
 
-// ES5
-for(var i = 0; i < boxesArr5.length; i++) {
-  if (boxesArr5[i].className === 'box blue') {
-    continue;
-  }
-  boxesArr5[i].textContent = 'I canged to blue!'
+// Spread Operator
+function addFourAges(a, b, c, d) {
+  return a + b + c + d;
 }
 
-// ES6
-for(const el of boxesArr6) {
-  if (el.className.includes('blue')) {
-    continue;
-  }
-  el.textContent = 'I Changed to blue!';
-}
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1);
 
-
-// ES5
-var ages = [12, 17, 8, 21, 14, 11];
-var full = ages.map(function(el) {
-  return el >= 18;
-});
-console.log(full);
-console.log(full.indexOf(true));
+//5
+var ages = [18, 30, 12, 21];
+var sum2 = addFourAges.apply(null, ages);
+console.log(sum2);
 
 // ES6
-console.log(ages.findIndex(el => el >= 18));
+const max3 = addFourAges(...ages);
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Ann'];
+const bigFamily = [...familySmith,'Lily', ...familyMiller];
+console.log(bigFamily);
+
+const h = document.querySelector('h1');
+const boxes = document.querySelectorAll('.box');
+const all = [h, ...boxes];
+console.log(all);
+
+Array.from(all).forEach(el => el.style.color = 'purple');
