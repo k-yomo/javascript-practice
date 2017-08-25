@@ -455,10 +455,16 @@ class Town {
   }
 }
 
-class Park {
-  constructor(name, buildYear, area, trees) {
+class Element {
+  constructor(name, buildYear) {
     this.name = name;
     this.buildYear = buildYear;
+  }
+}
+
+class Park extends Element {
+  constructor(name, buildYear, area, trees) {
+    super(name, buildYear)
     this.area = area;
     this.trees = trees;
   }
@@ -472,10 +478,9 @@ class Park {
   }
 }
 
-class Street {
+class Street extends Element{
   constructor(name, buildYear, stlength, size = 'normal') {
-    this.name = name;
-    this.buildYear = buildYear;
+    super(name, buildYear);
     this.stlength = stlength;
     this.size = size;
   }
