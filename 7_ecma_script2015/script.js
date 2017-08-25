@@ -434,23 +434,22 @@ class Town {
     this.parks = parks;
     this.streets = streets;
   }
+  calcTotal(arr) {
+    return  arr.reduce((prev, cur, index) => prev + cur, 0);
+  }
 
   averageParksAge() {
-    let total = 0;
-    for (let val of this.parks) {
-      total += val.calculateAge();
-    }
-    let average = total / this.parks.length;
+    const ages = this.parks.map(el => el.calculateAge());
+    const total = this.calcTotal(ages);
+    const average = total / this.parks.length;
 
     console.log(`Our ${this.parks.length} parks have an average age of ${average} years.`);
   }
 
   streetsLength() {
-    let total = 0;
-    for (let val of this.streets) {
-      total += val.stlength;
-    }
-    let average = total / this.streets.length;
+    const lengthes = this.streets.map(el => el.stLength);
+    const total = this.calcTotal(lengthes);
+    const average = total / this.streets.length;
     console.log(`Our ${this.streets.length} streets have a total length of ${total}km, with an average of ${average}km.`);
   }
 }
@@ -469,19 +468,19 @@ class Park extends Element {
     this.trees = trees;
   }
   treeDensity(){
-    let density = this.trees / this.area;
+    const density = this.trees / this.area;
     console.log(`${this.name} has a tree density of ${density} per square km.`);
   }
   calculateAge() {
-    let age = new Date().getFullYear() - this.buildYear;
+    const age = new Date().getFullYear() - this.buildYear;
     return age;
   }
 }
 
 class Street extends Element{
-  constructor(name, buildYear, stlength, size = 'normal') {
+  constructor(name, buildYear, stLength, size = 'normal') {
     super(name, buildYear);
-    this.stlength = stlength;
+    this.stLength = stLength;
     this.size = size;
   }
   getInfo() {
@@ -489,16 +488,18 @@ class Street extends Element{
   }
 }
 
-const parks = [];
-parks.push(new Park('Green Park', 1985, 0.4, 600));
-parks.push(new Park('National Park', 1990, 5, 1400));
-parks.push(new Park('Oak Park', 1965, 2, 200));
+const parks = [
+  new Park('Green Park', 1985, 0.4, 600),
+  new Park('National Park', 1990, 5, 1400),
+  new Park('Oak Park', 1965, 2, 200)
+];
 
-const streets = [];
-streets.push(new Street('Ocean Avenue', 1999, 2, 'big'));
-streets.push(new Street('Evergreen Street', 2000, 0.5, 'small'));
-streets.push(new Street('4th Street', 2015, 1));
-streets.push(new Street('Sunset Boulevard', 1982, 5, 'huge'));
+const streets = [
+  new Street('Ocean Avenue', 1999, 2, 'big'),
+  new Street('Evergreen Street', 2000, 0.5, 'small'),
+  new Street('4th Street', 2015, 1),
+  new Street('Sunset Boulevard', 1982, 5, 'huge')
+];
 
 const town = new Town(parks, streets);
 
